@@ -1,0 +1,36 @@
+{{>header}}
+
+<div class="container mt-5">
+  <form action="/todo" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" class="form-control" name="title" placeholder="Add title">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <input type="text" class="form-control" name="description" placeholder="Add description">
+    </div>
+    <div class="mb-3">
+      <input type="submit" class="btn btn-primary" value="Add Todo">
+    </div>
+  </form>
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+{{#each todo}}
+    <div class="col-md-3 col-12 my-3 ">
+      <div class="card-body border border-dark rounded-3">
+        <div class="d-flex justify-content-between">
+        <h5 class="card-title ">{{title}}</h5>
+        <a href="/delete/todo/{{_id}}"><i class="fa-solid fa-trash-can"></i></a>
+        </div>
+        <p class="card-text mt-3">{{description}}</p>
+      </div>
+    </div>  
+{{/each}}
+  </div>
+</div>
+
+
+{{>footer}}
